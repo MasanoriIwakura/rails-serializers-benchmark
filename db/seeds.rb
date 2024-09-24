@@ -11,7 +11,7 @@
 Faker::Config.locale = :ja
 
 User.delete_all
-100.times do |n|
+1000.times do |n|
   User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email
