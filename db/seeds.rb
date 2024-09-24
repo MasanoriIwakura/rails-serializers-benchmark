@@ -7,3 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Faker::Config.locale = :ja
+
+User.delete_all
+100.times do |n|
+  User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email
+  )
+end
