@@ -7,7 +7,7 @@ services:
       - 3030:3000
     volumes:
       - ./:/rails
-      - bundle:/rails/vendor/bundle
+      - bundle:/usr/local/bundle
 
     environment:
       - RAILS_ENV=development
