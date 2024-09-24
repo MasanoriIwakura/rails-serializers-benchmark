@@ -17,3 +17,13 @@ User.delete_all
     email: Faker::Internet.email
   )
 end
+
+User.find_each do |user|
+  10.times do |n|
+    Profile.create!(
+      hobby: Faker::Lorem.sentence(word_count: 5),
+      details: Faker::Lorem.sentence(word_count: 10),
+      user: user
+    )
+  end
+end
