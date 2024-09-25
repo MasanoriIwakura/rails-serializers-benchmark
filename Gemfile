@@ -28,6 +28,7 @@ gem "bootsnap", require: false
 # gem "rack-cors"
 gem "blueprinter", "~> 1.1.0"
 gem "alba", "~> 3.2.0"
+gem "jbuilder", "~> 2.13.0"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
