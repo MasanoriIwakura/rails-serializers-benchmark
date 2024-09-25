@@ -26,8 +26,8 @@ gem "bootsnap", require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
-gem 'blueprinter', '~> 1.1.0'
-gem 'alba', '~> 3.2.0'
+gem "blueprinter", "~> 1.1.0"
+gem "alba", "~> 3.2.0"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
