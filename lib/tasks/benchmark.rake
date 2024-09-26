@@ -24,7 +24,7 @@ namespace :benchmark do
   task :all do
     [ 100, 500, 1000 ].each do |count|
       print "\e[33m[#{count} records]\e[0m\n"
-      %W[default ams blueprinter alba jbuilder jb].each do |serializer_name|
+      %W[default ams blueprinter alba jbuilder jb jsonapi].each do |serializer_name|
         benchmark(serializer_name, count: count, ignore_detail_time: true)
       end
       print "\n"

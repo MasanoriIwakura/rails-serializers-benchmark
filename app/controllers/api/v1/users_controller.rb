@@ -26,6 +26,12 @@ class Api::V1::UsersController < ApplicationController
       render 'index', formats: :json, handlers: :jbuilder
     when 'jb'
       render 'index', formats: :json, handlers: :jb
+    when 'jsonapi'
+      # NOTE: ここだけレスポンスの構造が異なる(json-apiに準拠している)
+      render json: {
+        serializer: 'json-api',
+        users: JsonApi::UserSerializer.new(@users).serializable_hash
+      }
     else
       raise 'Unknown serializer'
     end
