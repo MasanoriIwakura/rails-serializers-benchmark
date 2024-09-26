@@ -5,7 +5,7 @@ namespace :benchmark do
   end
 
   def benchmark(serializer_name, count: 100, ignore_detail_time: false)
-    execute_count = 200
+    execute_count = 20
     total_time = 0
     execute_count.times do |i|
       time = Benchmark.measure do
