@@ -1,10 +1,12 @@
 class Api::V1::UsersController < ApplicationController
   def index
-    @serializer = params[:serializer] || 'blueprinter'
+    @serializer = params[:serializer] || 'default'
     count = params[:count] || 100
     @users = User.includes(:profiles).limit(count)
 
     case @serializer
+    when 'default'
+      render json: render_json
     when 'blueprinter'
       render json: {
         serializer: 'blueprinter',
@@ -22,5 +24,27 @@ class Api::V1::UsersController < ApplicationController
     else
       raise 'Unknown serializer'
     end
+  end
+
+  private
+
+  def render_json
+    {
+      serializer: @serializer,
+      users: @users.map do |user|
+        {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          profiles: user.profiles.map do |profile|
+            {
+              id: profile.id,
+              hobby: profile.hobby,
+              details: profile.details
+            }
+          end
+        }
+      end
+    }
   end
 end

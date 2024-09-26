@@ -9,7 +9,6 @@ namespace :benchmark do
     total_time = 0
     padding = 12
 
-    serializer_name = serializer_name.to_s
     execute_count.times do |i|
       time = Benchmark.measure do
         request(serializer_name, count)
@@ -25,7 +24,7 @@ namespace :benchmark do
   task :all do
     [ 100, 500, 1000 ].each do |count|
       print "\e[33m[#{count} records]\e[0m\n"
-      [ :blueprinter, :alba, :jbuilder, :jb ].each do |serializer_name|
+      %W[default blueprinter alba jbuilder jb].each do |serializer_name|
         benchmark(serializer_name, count: count, ignore_detail_time: true)
       end
       print "\n"
