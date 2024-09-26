@@ -7,6 +7,11 @@ class Api::V1::UsersController < ApplicationController
     case @serializer
     when 'default'
       render json: render_json
+    when 'ams'
+      render json: {
+        serializer: 'active_model_serializers',
+        users: ActiveModelSerializers::SerializableResource.new(@users, each_serializer: UserSerializer)
+      }
     when 'blueprinter'
       render json: {
         serializer: 'blueprinter',
