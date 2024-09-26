@@ -1,24 +1,24 @@
 class Api::V1::UsersController < ApplicationController
   def index
-    @serializer = params[:serializer] || "blueprinter"
+    @serializer = params[:serializer] || 'blueprinter'
     count = params[:count] || 100
     @users = User.includes(:profiles).limit(count)
 
     case @serializer
-    when "blueprinter"
+    when 'blueprinter'
       render json: {
-        serializer: "blueprinter",
+        serializer: 'blueprinter',
         users: UserBlueprint.render_as_hash(@users)
       }
-    when "alba"
+    when 'alba'
       render json: {
-        serializer: "alba",
+        serializer: 'alba',
         users: UserResource.new(@users)
       }
-    when "jbuilder"
-      render "index", formats: :json, handlers: :jbuilder
+    when 'jbuilder'
+      render 'index', formats: :json, handlers: :jbuilder
     else
-      raise "Unknown serializer"
+      raise 'Unknown serializer'
     end
   end
 end

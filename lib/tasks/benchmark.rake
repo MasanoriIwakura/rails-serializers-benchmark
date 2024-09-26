@@ -20,19 +20,19 @@ namespace :benchmark do
   end
 
   task :all do
-    benchmark("blueprinter", count: 100, ignore_detail_time: true)
-    benchmark("blueprinter", count: 500, ignore_detail_time: true)
-    benchmark("blueprinter", count: 1000, ignore_detail_time: true)
-    benchmark("alba", count: 100, ignore_detail_time: true)
-    benchmark("alba", count: 500, ignore_detail_time: true)
-    benchmark("alba", count: 1000, ignore_detail_time: true)
+    benchmark('blueprinter', count: 100, ignore_detail_time: true)
+    benchmark('blueprinter', count: 500, ignore_detail_time: true)
+    benchmark('blueprinter', count: 1000, ignore_detail_time: true)
+    benchmark('alba', count: 100, ignore_detail_time: true)
+    benchmark('alba', count: 500, ignore_detail_time: true)
+    benchmark('alba', count: 1000, ignore_detail_time: true)
   end
 
   task :blueprinter do
-    benchmark("blueprinter")
+    benchmark('blueprinter')
   end
 
   task :alba do
-    benchmark("alba")
+    benchmark('alba')
   end
 end
