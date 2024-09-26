@@ -26,6 +26,9 @@ namespace :benchmark do
     benchmark('alba', count: 100, ignore_detail_time: true)
     benchmark('alba', count: 500, ignore_detail_time: true)
     benchmark('alba', count: 1000, ignore_detail_time: true)
+    benchmark('jbuilder', count: 100, ignore_detail_time: true)
+    benchmark('jbuilder', count: 500, ignore_detail_time: true)
+    benchmark('jbuilder', count: 1000, ignore_detail_time: true)
   end
 
   task :blueprinter do
