@@ -23,10 +23,12 @@ namespace :benchmark do
   end
 
   task :all do
-    [ :blueprinter, :alba, :jbuilder, :jb ].each do |serializer_name|
-      [ 100, 500, 1000 ].each do |count|
+    [ 100, 500, 1000 ].each do |count|
+      print "\e[33m[#{count} records]\e[0m\n"
+      [ :blueprinter, :alba, :jbuilder, :jb ].each do |serializer_name|
         benchmark(serializer_name, count: count, ignore_detail_time: true)
       end
+      print "\n"
     end
   end
 
