@@ -16,7 +16,7 @@ class Api::V1::UsersController < ApplicationController
         users: UserResource.new(@users)
       }
     when "jbuilder"
-      render "index", formats: "json", handlers: "jbuilder"
+      render "index", formats: :json, handlers: :jbuilder
     else
       raise "Unknown serializer"
     end
