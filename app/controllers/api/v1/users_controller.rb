@@ -17,6 +17,8 @@ class Api::V1::UsersController < ApplicationController
       }
     when 'jbuilder'
       render 'index', formats: :json, handlers: :jbuilder
+    when 'jb'
+      render 'index', formats: :json, handlers: :jb
     else
       raise 'Unknown serializer'
     end

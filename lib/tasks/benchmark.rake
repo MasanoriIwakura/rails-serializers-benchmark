@@ -7,28 +7,27 @@ namespace :benchmark do
   def benchmark(serializer_name, count: 100, ignore_detail_time: false)
     execute_count = 20
     total_time = 0
+    padding = 12
+
+    serializer_name = serializer_name.to_s
     execute_count.times do |i|
       time = Benchmark.measure do
         request(serializer_name, count)
       end
       total_time += time.real
-      print "[#{serializer_name}] #{i+1}: #{time.real * 1000} ms\n" unless ignore_detail_time
+      print "#{serializer_name.ljust(padding)} #{i+1}: #{time.real * 1000} ms\n" unless ignore_detail_time
     end
 
     ave = total_time / execute_count
-    print "\e[33m[#{serializer_name}] Count: #{count} Average: #{(ave * 1000).floor(3)} ms\e[0m]\n"
+    print "\e[33m#{serializer_name.ljust(padding)} Count: #{count.to_s.ljust(4)} Average: #{(ave * 1000).floor(3)} ms\e[0m\n"
   end
 
   task :all do
-    benchmark('blueprinter', count: 100, ignore_detail_time: true)
-    benchmark('blueprinter', count: 500, ignore_detail_time: true)
-    benchmark('blueprinter', count: 1000, ignore_detail_time: true)
-    benchmark('alba', count: 100, ignore_detail_time: true)
-    benchmark('alba', count: 500, ignore_detail_time: true)
-    benchmark('alba', count: 1000, ignore_detail_time: true)
-    benchmark('jbuilder', count: 100, ignore_detail_time: true)
-    benchmark('jbuilder', count: 500, ignore_detail_time: true)
-    benchmark('jbuilder', count: 1000, ignore_detail_time: true)
+    [ :blueprinter, :alba, :jbuilder, :jb ].each do |serializer_name|
+      [ 100, 500, 1000 ].each do |count|
+        benchmark(serializer_name, count: count, ignore_detail_time: true)
+      end
+    end
   end
 
   task :blueprinter do

@@ -1,0 +1,19 @@
+json = {
+  serializer: @serializer,
+  users: @users.map do |user|
+    {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      profiles: user.profiles.map do |profile|
+        {
+          id: profile.id,
+          hobby: profile.hobby,
+          details: profile.details
+        }
+      end
+    }
+  end
+}
+
+json

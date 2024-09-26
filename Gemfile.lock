@@ -103,6 +103,7 @@ GEM
     irb (1.14.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
+    jb (0.8.2)
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -247,6 +248,7 @@ DEPENDENCIES
   brakeman
   debug
   faker
+  jb (~> 0.8.2)
   jbuilder (~> 2.13.0)
   pg (~> 1.1)
   puma (>= 5.0)
