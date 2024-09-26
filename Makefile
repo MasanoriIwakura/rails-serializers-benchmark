@@ -3,7 +3,6 @@ setup:
 	@docker compose build
 	@docker compose run --rm api bundle exec rails db:reset
 	@docker compose run --rm api bundle exec rails db:migrate
-	@docker compose run --rm api bundle exec rails db:seed
 
 up:
 	@docker compose up -d api
