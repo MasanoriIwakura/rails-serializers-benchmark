@@ -30,7 +30,7 @@ gem 'blueprinter', '~> 1.1.2'
 gem 'alba', '~> 3.3.3'
 gem 'jbuilder', '~> 2.13.0'
 gem 'jb', '~> 0.8.2'
-gem 'active_model_serializers', '~> 0.10.14'
+gem 'active_model_serializers', '~> 0.10.15'
 gem 'jsonapi-serializer', '~> 2.2.0'
 
 group :development, :test do
